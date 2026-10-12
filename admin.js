@@ -68,6 +68,15 @@ const produtosParaImportar = [
     imagemUrl: "https://tse1.mm.bing.net/th?q=Liquidificador%20Oster%20OLIQ610%201400W%20Full%203.2L%20Preto&w=600&h=420&c=7&rs=1&p=0"
   },
   {
+    id: "micro-ondas-electrolux-mt30s",
+    titulo: "Micro-ondas Electrolux 20L",
+    descricao: "Modelo MT30S inox espelhado com função Tira Odor. Escolher na voltagem 127 V.",
+    lojaNome: "Mercado Livre",
+    precoTotal: 499.90,
+    lojaUrl: "https://www.mercadolivre.com.br/micro-ondas-tira-odor-electrolux-20l-mt30s/p/MLB6351929?pdp_filters=item_id%3AMLB7285011678#reviews",
+    imagemUrl: "https://tse1.mm.bing.net/th?q=Micro-ondas%20Electrolux%20MT30S%2020L%20Inox%20Espelhado%20Tira%20Odor&w=600&h=420&c=7&rs=1&p=0"
+  },
+  {
     id: "ar-condicionado-elgin",
     titulo: "Ar-condicionado Elgin",
     lojaNome: "",
