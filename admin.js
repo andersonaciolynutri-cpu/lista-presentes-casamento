@@ -537,10 +537,27 @@ function carregarPresentes() {
     .onSnapshot((snapshot) => {
       tabelaPresentes.innerHTML = "";
 
-      snapshot.forEach((doc) => {
-        const p = doc.data();
-        const id = doc.id;
+      const presentes = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        dados: doc.data(),
+        importado: true
+      }));
 
+      produtosParaImportar.forEach((produto) => {
+        if (!presentes.some((presente) => presente.id === produto.id)) {
+          presentes.push({
+            id: produto.id,
+            dados: produto,
+            importado: false
+          });
+        }
+      });
+
+      presentes.sort((a, b) =>
+        String(a.dados.titulo || "").localeCompare(String(b.dados.titulo || ""), "pt-BR")
+      );
+
+      presentes.forEach(({ id, dados: p, importado }) => {
         const tr = document.createElement("tr");
 
         const cotasInfo = p.permiteCotas
@@ -551,10 +568,20 @@ function carregarPresentes() {
           criarCelula(p.titulo || ""),
           criarCelula(p.precoTotal ? "R$ " + Number(p.precoTotal).toFixed(2) : "—"),
           criarCelula(cotasInfo),
-          criarCelula(p.status || "—")
+          criarCelula(importado ? (p.status || "—") : "Aguardando importação")
         );
 
         const tdAcoes = document.createElement("td");
+        if (!importado) {
+          const aviso = document.createElement("span");
+          aviso.className = "badge text-bg-warning";
+          aviso.textContent = "Importar acima";
+          tdAcoes.appendChild(aviso);
+          tr.appendChild(tdAcoes);
+          tabelaPresentes.appendChild(tr);
+          return;
+        }
+
         const btnEditar = document.createElement("button");
         btnEditar.className = "btn btn-sm btn-outline-primary me-1";
         btnEditar.dataset.id = id;
