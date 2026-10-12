@@ -42,6 +42,31 @@ let valorReservaAtual = 0;
 let qtdCotasEscolhida = 1;
 let pixCopiaEColaAtual = "";
 
+const presentesIncorporados = [
+  {
+    id: "micro-ondas-electrolux-mt30s",
+    tipo: "online",
+    titulo: "Micro-ondas Electrolux 20L",
+    descricao: "Modelo MT30S inox espelhado com função Tira Odor. Escolher na voltagem 127 V.",
+    lojaNome: "Mercado Livre",
+    precoTotal: 499.90,
+    lojaUrl: "https://www.mercadolivre.com.br/micro-ondas-tira-odor-electrolux-20l-mt30s/p/MLB6351929?pdp_filters=item_id%3AMLB7285011678#reviews",
+    imagemUrl: "https://tse1.mm.bing.net/th?q=Micro-ondas%20Electrolux%20MT30S%2020L%20Inox%20Espelhado%20Tira%20Odor&w=600&h=420&c=7&rs=1&p=0",
+    permiteCotas: false,
+    qtdCotasTotal: 1,
+    qtdCotasReservadas: 0,
+    status: "disponivel"
+  }
+];
+
+async function buscarPresente(id) {
+  const incorporado = presentesIncorporados.find((presente) => presente.id === id);
+  const doc = await db.collection("presentes").doc(id).get();
+
+  if (doc.exists) return { id: doc.id, ...doc.data() };
+  return incorporado ? { ...incorporado } : null;
+}
+
 function escaparHtml(valor) {
   return String(valor ?? "")
     .replaceAll("&", "&amp;")
@@ -83,14 +108,26 @@ function carregarPresentes() {
     .onSnapshot((snapshot) => {
       listaPresentesDiv.innerHTML = "";
 
-      if (snapshot.empty) {
+      const presentes = [...snapshot.docs];
+
+      presentesIncorporados.forEach((presente) => {
+        if (!presentes.some((doc) => doc.id === presente.id)) {
+          presentes.push({ id: presente.id, data: () => presente });
+        }
+      });
+
+      presentes.sort((a, b) =>
+        String(a.data().titulo || "").localeCompare(String(b.data().titulo || ""), "pt-BR")
+      );
+
+      if (presentes.length === 0) {
         listaVaziaDiv.classList.remove("d-none");
         return;
       } else {
         listaVaziaDiv.classList.add("d-none");
       }
 
-      snapshot.forEach((doc) => {
+      presentes.forEach((doc) => {
         const p = doc.data();
         const id = doc.id;
         const tituloSeguro = escaparHtml(p.titulo || "Presente");
@@ -232,10 +269,8 @@ listaPresentesDiv.addEventListener("click", async (e) => {
   const btnPix = e.target.closest(".btnEnviarPix");
   if (btnPix) {
     const id = btnPix.getAttribute("data-id");
-    const doc = await db.collection("presentes").doc(id).get();
-    if (!doc.exists) return;
-
-    const presente = { id: doc.id, ...doc.data() };
+    const presente = await buscarPresente(id);
+    if (!presente) return;
     valorReservaAtual = presente.precoTotal || 0;
 
     if (valorReservaAtual <= 0) {
@@ -251,10 +286,8 @@ listaPresentesDiv.addEventListener("click", async (e) => {
   if (!btn) return;
 
   const id = btn.getAttribute("data-id");
-  const doc = await db.collection("presentes").doc(id).get();
-  if (!doc.exists) return;
-
-  presenteSelecionado = { id: doc.id, ...doc.data() };
+  presenteSelecionado = await buscarPresente(id);
+  if (!presenteSelecionado) return;
   const tipo = obterTipoPresente(presenteSelecionado);
 
   // Preenche modal
