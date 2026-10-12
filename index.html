@@ -3,17 +3,20 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Lista de Presentes – Amanda & Leonardo</title>
+    <title>Lista de Presentes – Amanda &amp; Leonardo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Lista de presentes de casamento de Amanda e Leonardo." />
+    <meta name="theme-color" content="#dedaf6" />
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=20260710-6" />
 
     <!-- Firebase compat (apenas app + firestore) -->
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js?v=20260710-2"></script>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap"
@@ -25,7 +28,8 @@
 
     <nav class="navbar navbar-light bg-white shadow-sm mb-4">
         <div class="container">
-            <span class="navbar-brand mb-0 h1">Beatriz & Thiago • Lista de Presentes</span>
+            <a class="btn btn-sm btn-outline-secondary" href="convite.html">Convite</a>
+            <span class="navbar-brand mb-0 h1">Amanda &amp; Leonardo • Lista de Presentes</span>
         </div>
     </nav>
 
@@ -34,26 +38,33 @@
   <!-- INTRO -->
   <section class="gift-intro mb-5">
     <h1 class="h4 mb-3 gift-intro-title text-center">Lista de Casamento</h1>
-    <p class="gift-intro-text text-center">
-      Esta é a nossa lista de presentes para o Lista de Casamento. 
-      Cada item aqui foi escolhido com carinho pensando no nosso dia a dia
-      e no cantinho que estamos construindo juntos.
-    </p>
-    <p class="gift-intro-text">
-      Você vai encontrar três tipos de presentes:
-      <br><strong>Presentes livres</strong>, em que você apenas sinaliza que vai presentear;<br>
-      <strong>Presentes em cotas</strong>, nos quais é possível contribuir com uma ou mais cotas via Pix;<br> 
-      <strong>Presentes online</strong>, que levam direto para o site da loja.<br>
-      Sempre que puder, clique em <strong>“Presentear”</strong> para sabermos que fomos lembrados por você. 💚<br><br>
-      <strong>OBSERVAÇÃO:</strong> Para eletrodomésticos a voltagem sempre será 110v
+    <p class="gift-intro-text gift-intro-lead text-center">
+      Preparamos esta lista com muito carinho, pensando no nosso dia a dia e no
+      lar que estamos construindo juntos. Escolha a forma de presentear que for
+      mais confortável para você.
     </p>
 
-    <p class="gift-intro-text text-center">
-    Se você preferir entregar o presente diretamente na nossa casa, nosso endereço é:<br />
-    <strong>
-      Rua Cesário, 245, Santo Elias - Mesquita - RJ | CEP: 26562-421 
-    </strong>
-  </p>
+    <ul class="gift-options">
+      <li><strong>Presentes livres:</strong> sinalize que escolheu o item para evitar presentes repetidos.</li>
+      <li><strong>Presentes em cotas:</strong> contribua com uma ou mais cotas e faça o pagamento via Pix.</li>
+      <li><strong>Presentes online:</strong> compre diretamente na loja ou escolha a opção de enviar o valor por Pix.</li>
+    </ul>
+
+    <p class="gift-intro-text gift-intro-note text-center">
+      Ao escolher um item, clique em <strong>“Presentear”</strong> para registrar sua escolha. 💚
+    </p>
+
+    <p class="gift-voltage-note">
+      <strong>Importante:</strong> para eletrodomésticos, escolha sempre a voltagem <strong>127 V</strong>.
+    </p>
+
+    <div class="gift-address text-center">
+      <span>Prefere entregar pessoalmente?</span>
+      <address>
+        Rua Padre Josino Tavares, 351, Casa 102<br />
+        Bangu, Rio de Janeiro - RJ · CEP 21810-220
+      </address>
+    </div>
   </section>
 
   <!-- PALETA DE CORES DOS PRODUTOS -->
@@ -62,8 +73,8 @@
       <div class="col-12 col-lg-4">
         <h2 class="h6 mb-2 gift-palette-title">Paleta de cores dos produtos</h2>
         <p class="small mb-0 gift-palette-text">
-          Sempre que possível, vamos escolher produtos nas cores 
-          <strong>preto, cinza, branco e verde</strong>, para combinar com a paleta do nosso lar
+          Sempre que possível, vamos escolher produtos nas cores
+          <strong>preto, cinza e branco</strong>, para combinar com a paleta do nosso lar
           e com o estilo do casamento. Se você for comprar por conta própria, essas cores são
           uma ótima referência.
         </p>
@@ -71,28 +82,22 @@
 
       <div class="col-12 col-lg-8">
         <div class="row g-2 gift-palette-swatches">
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-4">
             <div class="gift-color-card text-center">
               <div class="gift-color-swatch gift-color-preto"></div>
               <span class="gift-color-label">Preto</span>
             </div>
           </div>
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-4">
             <div class="gift-color-card text-center">
               <div class="gift-color-swatch gift-color-cinza"></div>
               <span class="gift-color-label">Inox</span>
             </div>
           </div>
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-4">
             <div class="gift-color-card text-center">
               <div class="gift-color-swatch gift-color-branco"></div>
               <span class="gift-color-label">Branco</span>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="gift-color-card text-center">
-              <div class="gift-color-swatch gift-color-verde"></div>
-              <span class="gift-color-label">Verde</span>
             </div>
           </div>
         </div>
@@ -106,7 +111,7 @@
       <!-- cards preenchidos via JS -->
     </div>
 
-    <div id="listaVazia" class="alert alert-info text-center d-none mt-4">
+    <div id="listaVazia" class="alert alert-info text-center d-none mt-4" role="status" aria-live="polite">
       Ainda não há presentes cadastrados.
     </div>
   </section>
@@ -182,7 +187,15 @@
                     <p class="mb-1"><strong>Valor:</strong> <span id="pixValor"></span></p>
                     <p class="mb-1"><strong>Chave Pix:</strong> <span id="pixChave"></span></p>
 
-                    <div class="d-flex gap-2 my-3">
+                    <div class="pix-qrcode-wrap my-3">
+                        <div id="pixQrCode" role="img" aria-label="QR Code para pagamento Pix"></div>
+                        <span>Escaneie com o aplicativo do seu banco</span>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2 my-3">
+                        <button id="btnCopiarPix" class="btn btn-primary btn-sm" type="button">
+                            Copiar Pix
+                        </button>
                         <button id="btnCopiarChave" class="btn btn-outline-secondary btn-sm" type="button">
                             Copiar chave
                         </button>
@@ -203,8 +216,9 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <!-- Lógica pública -->
-    <script src="script.js"></script>
+    <script src="script.js?v=20260710-5"></script>
 </body>
 
 </html>

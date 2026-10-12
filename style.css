@@ -1,10 +1,10 @@
 /* ======== BASE ======== */
 
 :root {
-  --verde-escuro: #4f6240;      /* um pouco mais forte */
+  --verde-escuro: #dedaf6;      /* um pouco mais forte */
   --verde-medio:  #6e8351;
-  --bege-claro:   #f3e7ca;      /* bege mais quentinho */
-  --cinza-texto:  #555555;
+  --marrom-cafe:   #35333f;
+  --cinza-texto:  #35333f;
 }
 
 *,
@@ -32,7 +32,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--bege-claro) !important;
+  color: #35333f !important;
   font-size: 0.9rem;
 }
 
@@ -41,7 +41,7 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
-  color: #4f6244;            /* verde mais escuro */
+  color: #35333f;
 }
 
 .gift-intro-text {
@@ -49,6 +49,62 @@ body {
   margin: 0 auto 0.5rem auto;
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.gift-intro-lead {
+  max-width: 680px;
+  margin-bottom: 1.25rem;
+}
+
+.gift-options {
+  max-width: 760px;
+  margin: 0 auto 1.25rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(53, 51, 63, 0.1);
+}
+
+.gift-options li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(53, 51, 63, 0.1);
+  color: #35333f;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.gift-intro-note {
+  margin-bottom: 1rem;
+}
+
+.gift-voltage-note {
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  padding: 0.65rem 0.8rem;
+  border-left: 3px solid #8fa77d;
+  background: rgba(222, 218, 246, 0.35);
+  color: #35333f;
+  font-size: 0.88rem;
+}
+
+.gift-address {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(53, 51, 63, 0.1);
+  color: #35333f;
+}
+
+.gift-address > span {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.82rem;
+}
+
+.gift-address address {
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
 /* ---- Paleta de cores dos produtos ---- */
@@ -64,11 +120,11 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: #4f6244;
+  color: #35333f;
 }
 
 .gift-palette-text {
-  color: #666458;
+  color: #35333f;
 }
 
 /* cards de cor */
@@ -114,7 +170,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #4a4a3f;
+  color: #35333f;
 }
 
 /* mobile */
@@ -132,7 +188,7 @@ main.container {
 main h1,
 main h2 {
   font-family: "Playfair Display", serif;
-  color: var(--verde-escuro);
+  color: var(--marrom-cafe);
 }
 
 main h1.h4 {
@@ -140,7 +196,7 @@ main h1.h4 {
   font-size: 1.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--verde-escuro);
+  color: var(--marrom-cafe);
   margin-bottom: 0.75rem;
 }
 
@@ -173,8 +229,9 @@ section p {
 /* ======== BOTÕES ======== */
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--verde-escuro), var(--verde-medio));
-  border-color: var(--verde-escuro);
+  background: #dedaf6;
+  border-color: #dedaf6;
+  color: #35333f;
   border-radius: 999px;
   padding-inline: 1.4rem;
   font-weight: 500;
@@ -182,19 +239,20 @@ section p {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: linear-gradient(135deg, var(--verde-medio), var(--verde-escuro));
-  border-color: var(--verde-medio);
+  background: #d1cbed;
+  border-color: #d1cbed;
+  color: #35333f;
 }
 
 .btn-outline-secondary {
   border-color: #c7c9c2;
-  color: #6c6f68;
+  color: #35333f;
 }
 
 .btn-outline-secondary:hover {
   background-color: #e5e7df;
   border-color: #c7c9c2;
-  color: #4b4d47;
+  color: #35333f;
 }
 
 /* ======== LISTA DE PRESENTES ======== */
@@ -205,10 +263,10 @@ section p {
 
 /* Cards dos presentes (assumindo que o JS cria .card) */
 #listaPresentes .card {
-  border: none;
-  border-radius: 1.2rem;
-  background: linear-gradient(180deg, #fdfbf7 0%, #ffffff 60%, #fbf7ef 100%);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(53, 51, 63, 0.08);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfaff 55%, #f2efff 100%);
+  box-shadow: 0 8px 24px rgba(53, 51, 63, 0.07);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
   overflow: hidden;
   display: flex;
@@ -224,47 +282,169 @@ section p {
 }
 
 #listaPresentes .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(53, 51, 63, 0.1);
 }
 
 /* Imagem do presente (se existir) */
+.presente-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #ffffff;
+}
+
 #listaPresentes .card-img-top {
-  max-height: 210px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.35rem;
 }
 
 /* Corpo do card */
 #listaPresentes .card-body {
-  padding: 1.1rem 1.3rem 1.3rem;
+  padding: 1rem;
 }
 
 /* Título do presente */
 #listaPresentes .card-title {
   font-family: "Playfair Display", serif;
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
-  color: var(--verde-escuro);
+  font-size: 1.08rem;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  color: #35333f;
 }
 
 /* Descrição menor e suave */
 #listaPresentes .card-text {
-  font-size: 0.9rem;
-  color: #777a73;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+  color: #35333f;
+}
+
+.presente-loja,
+.presente-preco {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(53, 51, 63, 0.08);
+  color: #35333f;
+}
+
+.presente-loja {
+  font-size: 0.8rem;
+}
+
+.presente-loja a {
+  color: #35333f;
+  font-weight: 600;
+  text-decoration-color: #aaa4d1;
+  text-underline-offset: 3px;
+}
+
+.presente-preco span {
+  font-size: 0.78rem;
+}
+
+.presente-preco strong {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.presente-acao {
+  padding-top: 0.85rem;
+}
+
+.presente-acao > .btn {
+  width: 100%;
+}
+
+.presente-acoes-duplas {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+.btn-pix {
+  border: 1px solid #aaa4d1;
+  background: #ffffff;
+  color: #35333f;
+  font-weight: 600;
+}
+
+.btn-pix:hover,
+.btn-pix:focus {
+  border-color: #8f88bd;
+  background: #dedaf6;
+  color: #35333f;
 }
 
 /* Info de preço e cotas */
 .presente-info-preco {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--verde-escuro);
+  color: #35333f;
 }
 
 .presente-info-cotas {
   font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #9a9d94;
+  color: #35333f;
+}
+
+.presente-cotas-resumo {
+  padding: 0.75rem 0.85rem;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid #dedaf6;
+  border-radius: 8px;
+}
+
+.presente-cotas-valor,
+.presente-cotas-contagem {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #35333f;
+}
+
+.presente-cotas-valor span,
+.presente-cotas-contagem span,
+.presente-cotas-reservadas {
+  font-size: 0.78rem;
+}
+
+.presente-cotas-valor strong {
+  font-size: 1rem;
+}
+
+.presente-cotas-contagem {
+  margin-top: 0.45rem;
+}
+
+.presente-cotas-barra {
+  height: 6px;
+  margin-top: 0.45rem;
+  overflow: hidden;
+  background: #e8e6ed;
+  border-radius: 3px;
+}
+
+.presente-cotas-barra span {
+  display: block;
+  height: 100%;
+  background: #8fa77d;
+  border-radius: inherit;
+}
+
+.presente-cotas-reservadas {
+  display: block;
+  margin-top: 0.3rem;
+  color: #35333f;
+  opacity: 0.72;
+  text-align: right;
 }
 
 /* Rodapé do card: botões alinhados */
@@ -280,21 +460,28 @@ section p {
 
 /* Badge de status (se você colocar via JS) */
 .badge-status {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 999px;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(53, 51, 63, 0.1);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #35333f;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
+  box-shadow: 0 2px 8px rgba(53, 51, 63, 0.08);
 }
 
 .badge-disponivel {
   background-color: rgba(93, 109, 75, 0.08);
-  color: var(--verde-escuro);
+  color: #35333f;
 }
 
 .badge-esgotado {
   background-color: #f3dcdc;
-  color: #9c3b3b;
+  color: #35333f;
 }
 
 /* Alerta de lista vazia */
@@ -318,7 +505,36 @@ section p {
 
 .modal-title {
   font-family: "Playfair Display", serif;
-  color: var(--verde-escuro);
+  color: #35333f;
+}
+
+.pix-qrcode-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem;
+  border: 1px solid #dedaf6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+#pixQrCode {
+  width: 184px;
+  height: 184px;
+}
+
+#pixQrCode img,
+#pixQrCode canvas {
+  display: block;
+  width: 184px !important;
+  height: 184px !important;
+}
+
+.pix-qrcode-wrap > span {
+  color: #35333f;
+  font-size: 0.78rem;
+  text-align: center;
 }
 
 .modal-footer {
@@ -329,7 +545,7 @@ section p {
 /* Inputs */
 .form-label {
   font-size: 0.9rem;
-  color: #6b6d64;
+  color: #35333f;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -347,7 +563,7 @@ section p {
 /* Textinhos de help */
 .form-text {
   font-size: 0.8rem;
-  color: #9a9d94;
+  color: #35333f;
 }
 
 /* ======== RESPONSIVO ======== */
@@ -363,6 +579,6 @@ section p {
   }
 
   #listaPresentes .card {
-    border-radius: 0.9rem;
+    border-radius: 8px;
   }
 }
